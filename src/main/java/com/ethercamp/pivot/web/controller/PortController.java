@@ -21,6 +21,15 @@ public class PortController {
         return "Pivot.ether.camp";
     }
 
+    @CrossOrigin    // allow method to be called from client side out of this domain
+    @RequestMapping(path = "/checkIp", method = RequestMethod.GET)
+    String check(HttpServletRequest request,
+                 HttpServletResponse response) {
+        String ipAddress = request.getRemoteAddr();
+        log.debug("checkIp " + ",  ipAddress:" + ipAddress);
+        return ipAddress;
+    }
+
     /**
      * Check port connectivity of server which called us.
      * Block current thread with IO.
@@ -31,7 +40,7 @@ public class PortController {
                  HttpServletRequest request,
                  HttpServletResponse response) {
         String ipAddress = request.getRemoteAddr();
-        log.info("check " + input + ",  ipAddress:" + ipAddress);
+        log.info("checkPort " + input + ",  ipAddress:" + ipAddress);
 
         final Map<String, Object> result = new HashMap<>();
         result.put("result", false);
