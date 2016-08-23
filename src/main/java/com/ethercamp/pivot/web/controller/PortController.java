@@ -66,7 +66,7 @@ public class PortController {
                 socket = new Socket(ipAddress, input.port);
                 log.info("Success connecting TCP to " + ipAddress + ":" + input.port);
                 result.put("result", true);
-            } catch (IOException e) {
+            } catch (Exception e) {
                 log.info("Problem connecting TCP to " + ipAddress + ":" + input.port + " " + e.getMessage());
             } finally {
                 if (socket != null) {
