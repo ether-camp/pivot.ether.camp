@@ -25,6 +25,7 @@ public class PortController {
      * Check port connectivity of server which called us.
      * Block current thread with IO.
      */
+    @CrossOrigin    // allow method to be called from client side out of this domain
     @RequestMapping(path = "/checkPort", method = RequestMethod.POST)
     Object check(@RequestBody CheckPortData input,
                  HttpServletRequest request,
