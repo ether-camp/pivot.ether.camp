@@ -35,6 +35,7 @@ public class PortController {
 
         final Map<String, Object> result = new HashMap<>();
         result.put("result", false);
+        result.put("address", ipAddress);
 
         if (input.protocol.equalsIgnoreCase("udp")) {
             // UDP
