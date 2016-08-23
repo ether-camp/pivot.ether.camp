@@ -69,7 +69,7 @@ bootRun {
 }
 
 springBoot {
-    mainClass = "com.ethercamp.harmony.Application"
+    mainClass = "com.ethercamp.pivot.Application"
 }
 
 sourceCompatibility=1.8

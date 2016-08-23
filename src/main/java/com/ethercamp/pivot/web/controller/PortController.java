@@ -1,10 +1,7 @@
 package com.ethercamp.pivot.web.controller;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,14 +12,20 @@ import java.util.Map;
 
 @RestController
 @Slf4j(topic = "controller")
-@RequestMapping("/checkPort")
+@RequestMapping("/")
 public class PortController {
+
+    @RequestMapping("/")
+    @ResponseBody
+    String index() {
+        return "Pivot.ether.camp";
+    }
 
     /**
      * Check port connectivity of server which called us.
      * Block current thread with IO.
      */
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(path = "/checkPort", method = RequestMethod.POST)
     Object check(@RequestBody CheckPortData input,
                  HttpServletRequest request,
                  HttpServletResponse response) {
